@@ -1,3 +1,6 @@
+// Load environment variables FIRST, before any other imports
+import 'dotenv/config';
+
 import express from 'express';
 import cors from 'cors';
 import pinoHttp from 'pino-http';
@@ -5,6 +8,8 @@ import logger from './utils/logger';
 import { logSystemEvent } from './utils/loggers';
 import authRoutes from './routes/auth.routes';
 import { errorHandler } from './middleware/errorHandler';
+// Initialize Firebase Admin SDK
+import './config/firebase.config';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
